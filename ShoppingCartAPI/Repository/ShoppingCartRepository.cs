@@ -12,7 +12,6 @@ namespace ShoppingCartAPI.Repository
         public ShoppingCartRepository(ShoppingCartDbContext shoppingCartDbContext)
         {
             this.shoppingCartDbContext = shoppingCartDbContext;
-                
         }
 
         public void AddCart(Cart cart)
@@ -23,23 +22,6 @@ namespace ShoppingCartAPI.Repository
 
         public int CartCount(int uid)
         {
-            /*var ProductByUser = (
-               from p in shoppingCartDbContext.Product
-               join c in shoppingCartDbContext.Cart
-               on p.ProductId equals c.ProductId
-               where (c.UserId == uid)
-               select new
-               {
-                   ProductId = p.ProductId,
-                   ProductName = p.ProductName,
-                   ProductType = p.ProductType,
-                   Price = p.Price,
-                   ProductDescription = p.ProductDescription,
-                   ProductImage = p.ProductImage,
-                   CartId = c.CartId,
-               }).Count();
-            shoppingCartDbContext.SaveChanges();
-            return (ProductByUser);*/
             var CartCount = from c in shoppingCartDbContext.Cart where (c.UserId == uid) select c;
             return CartCount.Count();
             
