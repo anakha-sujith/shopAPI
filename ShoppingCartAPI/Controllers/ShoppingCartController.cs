@@ -16,7 +16,7 @@ namespace ShoppingCartAPI.Controllers
             this.shoppingProductRepository = shoppingProductRepository;
             this.shoppingCartRepository = shoppingCartRepository;
         }
-
+        
         [HttpGet("GetAllProducts")]
         public IActionResult CGetAllProducts()
         {
@@ -32,7 +32,10 @@ namespace ShoppingCartAPI.Controllers
             {
                 return Ok(item);
             }
-            return NotFound();
+            return BadRequest(new
+            {
+                Message= "Product not found"
+            });
         }
 
         [HttpGet("CartProductById/{uid}")]
@@ -62,7 +65,7 @@ namespace ShoppingCartAPI.Controllers
             {
                 return BadRequest(new
                 {
-                    Message ="failed"
+                    Message = "cartid not found"
                 }) ;  
             }
         }
@@ -70,8 +73,9 @@ namespace ShoppingCartAPI.Controllers
         [HttpGet("count/{uid}")]
         public IActionResult CCartCount(int uid)
         {
-            var cartcount = shoppingCartRepository.CartCount(uid);
-            return Ok(cartcount);
+           var cartcount = shoppingCartRepository.CartCount(uid);
+           return Ok(cartcount);
+           
         }
     }
 }

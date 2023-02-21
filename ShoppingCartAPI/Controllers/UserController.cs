@@ -17,12 +17,13 @@ namespace ShoppingCartAPI.Controllers
     public class UserController : Controller
     {
         private readonly ShoppingCartDbContext shoppingCartDbContext;
-
-        public UserController(ShoppingCartDbContext shoppingCartDbContext)
+        private readonly IConfiguration _configuration;
+        public UserController(ShoppingCartDbContext shoppingCartDbContext,IConfiguration configuration)
         {
             this.shoppingCartDbContext = shoppingCartDbContext;
+            this._configuration = configuration;
         }
-        
+
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate(User userobj)
         {
@@ -38,7 +39,7 @@ namespace ShoppingCartAPI.Controllers
                     message = "user not found"
                 });
             if (!PasswordHasher.Verifypassword(userobj.Passsword, user.Passsword))
-                return BadRequest(new
+                return Unauthorized(new
                 {
                     message = "password is incorrect"
                 });
@@ -62,7 +63,7 @@ namespace ShoppingCartAPI.Controllers
                     message = "username already exists!!!"
                 });
             if (await CheckemailExist(userObj.Email))
-                return BadRequest(new
+               return BadRequest(new
                 {
                     message = "email already exist!!!"
                 });
@@ -92,9 +93,10 @@ namespace ShoppingCartAPI.Controllers
 
         private string Passwordstrength(string pwd)
         {
+            int PasswordLength = _configuration.GetValue<int>("PasswordLength");
             StringBuilder sb = new StringBuilder();
-            if (pwd.Length < 8)
-                sb.Append("miniminum password should be 8" + Environment.NewLine);
+            if (pwd.Length < PasswordLength )
+                sb.Append("miniminum password should be " +PasswordLength +Environment.NewLine);
             if (!(Regex.IsMatch(pwd, "[a-z]") && Regex.IsMatch(pwd, "[A-Z]")
                 && Regex.IsMatch(pwd, "[0-9]")))
                 sb.Append("password should be alphanumeric" + Environment.NewLine);

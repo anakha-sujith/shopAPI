@@ -25,8 +25,7 @@ builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddDbContext<ShoppingCartDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-}
-);
+});
 
 builder.Services.AddAuthentication(options =>
 {

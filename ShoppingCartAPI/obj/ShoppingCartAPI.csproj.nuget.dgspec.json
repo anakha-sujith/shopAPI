@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anakha.s\\Documents\\DotNet\\ShoppingCartAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj": {}
+    "D:\\gitHub\\API\\shopAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anakha.s\\Documents\\DotNet\\ShoppingCartAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj": {
+    "D:\\gitHub\\API\\shopAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anakha.s\\Documents\\DotNet\\ShoppingCartAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj",
+        "projectUniqueName": "D:\\gitHub\\API\\shopAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj",
         "projectName": "ShoppingCartAPI",
-        "projectPath": "C:\\Users\\anakha.s\\Documents\\DotNet\\ShoppingCartAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj",
+        "projectPath": "D:\\gitHub\\API\\shopAPI\\ShoppingCartAPI\\ShoppingCartAPI.csproj",
         "packagesPath": "C:\\Users\\anakha.s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anakha.s\\Documents\\DotNet\\ShoppingCartAPI\\ShoppingCartAPI\\obj\\",
+        "outputPath": "D:\\gitHub\\API\\shopAPI\\ShoppingCartAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anakha.s\\AppData\\Roaming\\NuGet\\NuGet.Config",
